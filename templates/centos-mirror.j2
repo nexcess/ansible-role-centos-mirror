@@ -1,0 +1,29 @@
+#!/bin/bash
+# http://www.centos.org/modules/tinycontent/index.php?id=22
+
+SOURCE='us-msync.centos.org::CentOS/'
+DESTINATION='{{ mirror_doc_root }}/CentOS/'
+
+LOCKFILE=/tmp/$(basename ${DESTINATION}).lock
+
+if [[ ! -e $LOCKFILE ]]; then
+    touch $LOCKFILE
+    rsync -avH               \
+          --delete           \
+          --delete-after     \
+          --delay-updates    \
+          --exclude '.~tmp~' \
+          --human-readable   \
+          --progress         \
+          --stats            \
+          --safe-links       \
+          --itemize-changes  \
+          ${SOURCE} ${DESTINATION}
+    rm $LOCKFILE
+else
+    cat <<EOF 1>&2
+ERROR: Another rsync is already running and has the lock file
+$LOCKFILE.
+EOF
+
+fi

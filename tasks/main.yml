@@ -1,1 +1,17 @@
 ---
+
+- name: Install Update CRON
+  template:
+    src="centos-mirror.j2"
+    dest="{{ mirror_cron_dir }}/centos-mirror"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    mode=0700
+
+- name: Setup CRON Schedule
+  cron:
+    name="CentOS"
+    special_time="daily"
+    user="{{ mirror_unix_user }}"
+    state="present"
+    job="{{ mirror_cron_dir }}/centos-mirror"
