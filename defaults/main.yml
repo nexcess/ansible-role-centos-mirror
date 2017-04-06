@@ -1,1 +1,4 @@
 ---
+
+centos_mirror_source: "us-msync.centos.org::CentOS/"
+#centos_mirror_source: "mirror.steadfast.net::centos/"

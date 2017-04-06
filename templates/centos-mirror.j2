@@ -1,7 +1,7 @@
 #!/bin/bash
 # http://www.centos.org/modules/tinycontent/index.php?id=22
 
-SOURCE='us-msync.centos.org::CentOS/'
+SOURCE='{{ centos_mirror_source }}'
 DESTINATION='{{ mirror_doc_root }}/CentOS/'
 
 LOCKFILE=/tmp/$(basename ${DESTINATION}).lock
