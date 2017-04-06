@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: "Chris Wells"
+  description: "CentOS Mirror Role"
+  company: "Nexcess.net LLC"
+  license: "MIT"
+  min_ansible_version: "2.0"
+  platforms:
+    - name: "EL"
+      versions:
+        - "7"
+dependencies: []
