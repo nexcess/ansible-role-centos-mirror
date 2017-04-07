@@ -2,4 +2,4 @@
 
 centos_mirror_source: "us-msync.centos.org::CentOS/"
 #centos_mirror_source: "mirror.steadfast.net::centos/"
-centos_mirror_cron_enabled: false
+centos_mirror_cron_enabled: true
