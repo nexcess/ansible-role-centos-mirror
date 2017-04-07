@@ -9,4 +9,6 @@ galaxy_info:
     - name: "EL"
       versions:
         - "7"
-dependencies: []
+dependencies:
+  - name: "nexcess.mirror"
+    src: "git+git@github.com:nexcess/ansible-role-mirror.git"
