@@ -15,3 +15,4 @@
     user="{{ mirror_unix_user }}"
     state="present"
     job="{{ mirror_cron_dir }}/centos-mirror"
+    disabled="{{ centos_mirror_cron_enabled }}"
