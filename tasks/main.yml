@@ -11,7 +11,8 @@
 - name: Setup CRON Schedule
   cron:
     name="CentOS"
-    special_time="daily"
+    minute="{{ 59 | random(seed=inventory_hostname) }}"
+    hour="{{ 23 | random(seed=inventory_hostname) }}"
     user="{{ mirror_unix_user }}"
     state="present"
     job="{{ mirror_cron_dir }}/centos-mirror"
