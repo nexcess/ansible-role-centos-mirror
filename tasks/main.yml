@@ -15,5 +15,5 @@
     hour="{{ centos_mirror_cron_hour }}"
     user="{{ mirror_unix_user }}"
     state="present"
-    job="{{ mirror_cron_dir }}/centos-mirror"
+    job="{{ mirror_cron_dir }}/centos-mirror >/dev/null 2>&1"
     disabled="{{ centos_mirror_cron_disabled }}"
