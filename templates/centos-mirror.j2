@@ -19,6 +19,11 @@ if [[ ! -e $LOCKFILE ]]; then
           --safe-links       \
           --itemize-changes  \
           ${SOURCE} ${DESTINATION}
+
+    if [[ $? -eq 0 ]]; then
+        echo `date +%s` > {{ mirror_timestamp_dir }}/centos
+    fi
+
     rm $LOCKFILE
 else
     cat <<EOF 1>&2
