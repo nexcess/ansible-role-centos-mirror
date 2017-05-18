@@ -17,3 +17,16 @@
     state="present"
     job="{{ mirror_cron_dir }}/centos-mirror >/dev/null 2>&1"
     disabled="{{ centos_mirror_cron_disabled }}"
+
+- stat:
+    path="{{ mirror_timestamp_dir }}/centos"
+  register: tsfile
+
+- name: Seed Timestamp File
+  copy:
+    content="0"
+    dest="{{ mirror_timestamp_dir }}/centos"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    mode=0644
+  when: not tsfile.stat.exists
