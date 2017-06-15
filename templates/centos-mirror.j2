@@ -18,6 +18,7 @@ if [[ ! -e $LOCKFILE ]]; then
           --stats            \
           --safe-links       \
           --itemize-changes  \
+          --timeout=10800    \
           ${SOURCE} ${DESTINATION}
 
     if [[ $? -eq 0 ]]; then
