@@ -8,7 +8,7 @@ LOCKFILE=/tmp/$(basename ${DESTINATION}).lock
 
 if [[ ! -e $LOCKFILE ]]; then
     touch $LOCKFILE
-    rsync -avH               \
+    timeout 1d rsync -avH    \
           --delete           \
           --delete-after     \
           --delay-updates    \
